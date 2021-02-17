@@ -1,0 +1,5 @@
+* Why Emacs
+
+** Installation
+
+** Usage

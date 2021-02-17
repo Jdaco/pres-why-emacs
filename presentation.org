@@ -1,0 +1,8 @@
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+REVEAL_HLEVEL: 2
+#+OPTIONS: toc:nil reveal_title_slide:nil
+#+REVEAL_THEME: blood
+#+REVEAL_TRANS: linear
+
+
+* Why Emacs
