@@ -1,8 +1,74 @@
+#+AUTHOR: Chaise Conn
+#+title: Why Emacs?
+#+REVEAL_TITLE_SLIDE: <h2>%t</h2><br/>Author: <h4>%a</h4>
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
 #+REVEAL_HLEVEL: 2
 #+OPTIONS: toc:nil reveal_title_slide:nil
 #+REVEAL_THEME: blood
 #+REVEAL_TRANS: linear
 
-
 * Why Emacs
+
+#+BEGIN_NOTES
+- Compare emacs to other editors (vim, vscode)
+- Talk about the structure of emacs
+  + Configuration
+  + Emacs Lisp
+  + Package management
+  + Keyboard driven interface
+- Talk about the things that emacs can do
+  + Editing
+    - Evil
+    - Treemacs
+    - Projectile
+    - Magit
+  + Email
+  + Org-mode
+  + This presentation
+  + Universal completion (helm / ivy)
+- Configuration frameworks
+  + Spacemacs
+  + Doom emacs
+#+END_NOTES
+
+** What is Emacs?
+- It's a text editing environment...and more!
+- Initially released in *1976*
+
+*** Emacs is a text editor!
+- Versatile key bindings
+- Syntax hilighting
+- Syntax checking / linting
+- Git interface
+
+*** Emacs is a REPL!
+
+*** Emacs is an operating system!
+- Package manager
+- Terminal
+- File browser
+- Ebook reader
+- Image viewer
+- Email
+- Personal agenda
+
+** Why should I use emacs?
+
+*** Keyboard Driven Interface
+#+BEGIN_NOTES
+- Keyboard driven interfaces increase productivity
+#+END_NOTES
+
+*** Customization
+#+BEGIN_NOTES
+- You can turn the program into exactly what works best for you
+#+END_NOTES
+
+** How do I get started?
+
+** Comparison
+- Keyboard Driven Interface
+- Git Interface
+- Project fuzzy search
+- Project tree sidebar
+- Easy Configuration
