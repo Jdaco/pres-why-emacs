@@ -1,74 +1,92 @@
-#+AUTHOR: Chaise Conn
-#+title: Why Emacs?
-#+REVEAL_TITLE_SLIDE: <h2>%t</h2><br/>Author: <h4>%a</h4>
-#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
-#+REVEAL_HLEVEL: 2
-#+OPTIONS: toc:nil reveal_title_slide:nil
-#+REVEAL_THEME: blood
-#+REVEAL_TRANS: linear
+#+title: Why Emacs
+#+author: Chaise Conn
 
-* Why Emacs
+* My Background
+- Started using *Vim* in high school
+- I love keyboard-driven interfaces
+- I love customizing my tools
+- I started using *Emacs* 1 year ago
+* Why do we need to talk about Emacs?
+** Editor Market Share
+From the 2019 StackOverflow developer survey:
+[[file:marketshare.png]]
+** Why no love for Emacs?
+- Never heard of Emacs?
+  + Initially released in *1976*
+- Think it's just a text editor?
+- Tried Emacs before, but couldn't figure it out?
+* What is Emacs?
 
-#+BEGIN_NOTES
-- Compare emacs to other editors (vim, vscode)
-- Talk about the structure of emacs
-  + Configuration
-  + Emacs Lisp
-  + Package management
-  + Keyboard driven interface
-- Talk about the things that emacs can do
-  + Editing
-    - Evil
-    - Treemacs
-    - Projectile
-    - Magit
-  + Email
-  + Org-mode
-  + This presentation
-  + Universal completion (helm / ivy)
-- Configuration frameworks
-  + Spacemacs
-  + Doom emacs
-#+END_NOTES
+It's a *programmable*, *text-oriented* user-interface
 
-** What is Emacs?
-- It's a text editing environment...and more!
-- Initially released in *1976*
+[[file:emacs_structure.png]]
 
-*** Emacs is a text editor!
+** Emacs is an IDE!
 - Versatile key bindings
-- Syntax hilighting
-- Syntax checking / linting
-- Git interface
-
-*** Emacs is a REPL!
-
-*** Emacs is an operating system!
-- Package manager
+- Window splits
 - Terminal
+- Syntax highlighting
+- Syntax checking / linting
+- Completion
+- Project search & tree
+- Git interface
+  + Status
+  + Committing
+  + Log
+  + Push / Pull
+- Breakpoint Debugging (/experimental/)
+
+** Emacs is a REPL!
+- [[file:~/.config/doom/config.el][Configured]] in *Emacs Lisp*
+
+- Every action is a *function*
+  + You can execute functions using keybinds, or by calling them directly
+
+- Every function is *self-documenting*
+
+- Has it's own *package manager*
+
+*** Example
+#+begin_src elisp :results none
+(defun projectile-find-readme ()
+  "Open the README for the current project"
+  (interactive)
+  (let ((fpaths (append
+                 (file-expand-wildcards (projectile-expand-root "*.org"))
+                 (file-expand-wildcards (projectile-expand-root "*.md")))))
+    (if (and (not (seq-empty-p fpaths))
+             (file-exists-p (car fpaths)))
+        (find-file (car fpaths))
+      (message "README doesn't exist"))))
+
+(map! :leader "p /" #'projectile-find-readme)
+#+end_src
+** Emacs is an operating system!
 - File browser
-- Ebook reader
-- Image viewer
-- Email
+  + PDF reader
+  + Image viewer
+- Email client
 - Personal agenda
+- RSS feed reader
+- Personal finance
+- Literate programming
+- Tiling window manager
 
-** Why should I use emacs?
+* How do I get started?
+** First startup
+[[file:emacs.png]]
+** Configuration Frameworks
+- Spacemacs
+- [[file:~/.config/doom/init.el][Doom emacs]]
 
-*** Keyboard Driven Interface
-#+BEGIN_NOTES
-- Keyboard driven interfaces increase productivity
-#+END_NOTES
+*** Starting Screen
+#+ATTR_ORG: :width 1200
+[[file:doom.png]]
+** Tips
+- It helps to already be familiar with *Vim*
+- Keep the manual page handy
 
-*** Customization
-#+BEGIN_NOTES
-- You can turn the program into exactly what works best for you
-#+END_NOTES
-
-** How do I get started?
-
-** Comparison
-- Keyboard Driven Interface
-- Git Interface
-- Project fuzzy search
-- Project tree sidebar
-- Easy Configuration
+* Conclusion
+- Emacs is not *just* a text editor
+- Emacs deserves more :heart:
+- I'm happy to help anyone get started
