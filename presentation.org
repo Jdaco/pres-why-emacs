@@ -1,15 +1,29 @@
-#+title: Why Emacs
+#+title: Emacs
 #+author: Chaise Conn
+#+REVEAL_HLEVEL: 1
+#+OPTIONS: toc:nil reveal_title_slide:nil reveal_single_file:t
+#+REVEAL_THEME: blood
+#+REVEAL_TRANS: linear
+#+REVEAL_TITLE_SLIDE: <h2>%t</h2><br/>Author: <h4>%a</h4>
+
+#+BEGIN_NOTES
+We're going to be talking about Emacs today. I wanted to take this time to help people understand what Emacs is and how it works.
+
+- Once I understood, Emacs took over my computer
+  + You don't have to go that far
+- This is a discusstion
+#+END_NOTES
 
 * My Background
 - Started using *Vim* in high school
-- I love keyboard-driven interfaces
-- I love customizing my tools
+- I love *keyboard-driven* interfaces
+- I love *customizing* my tools
 - I started using *Emacs* 1 year ago
-* Why do we need to talk about Emacs?
-** Editor Market Share
-From the 2019 StackOverflow developer survey:
-[[file:marketshare.png]]
+
+#+REVEAL: split
+
+[[./market.png]]
+
 ** Why no love for Emacs?
 - Never heard of Emacs?
   + Initially released in *1976*
@@ -17,37 +31,24 @@ From the 2019 StackOverflow developer survey:
 - Tried Emacs before, but couldn't figure it out?
 * What is Emacs?
 
+Hint: it's not *just* an editor
+
+#+REVEAL: split
+
 It's a *programmable*, *text-oriented* user-interface
 
 [[file:emacs_structure.png]]
 
-** Emacs is an IDE!
-- Versatile key bindings
-- Window splits
-- Terminal
-- Syntax highlighting
-- Syntax checking / linting
-- Completion
-- Project search & tree
-- Git interface
-  + Status
-  + Committing
-  + Log
-  + Push / Pull
-- Breakpoint Debugging (/experimental/)
-
 ** Emacs is a REPL!
-- [[file:~/.config/doom/config.el][Configured]] in *Emacs Lisp*
-
+- Configured in *Emacs Lisp*
 - Every action is a *function*
   + You can execute functions using keybinds, or by calling them directly
-
 - Every function is *self-documenting*
-
 - Has it's own *package manager*
 
 *** Example
-#+begin_src elisp :results none
+
+#+begin_src elisp :results none :exports code
 (defun projectile-find-readme ()
   "Open the README for the current project"
   (interactive)
@@ -61,7 +62,18 @@ It's a *programmable*, *text-oriented* user-interface
 
 (map! :leader "p /" #'projectile-find-readme)
 #+end_src
-** Emacs is an operating system!
+** Emacs is an IDE!
+- Versatile key bindings
+- Window splits
+- Terminal
+- Syntax highlighting
+- Syntax checking / linting
+- Completion
+- Project search & tree
+- Git interface
+- Breakpoint Debugging (/experimental/)
+
+** Emacs is an OS!
 - File browser
   + PDF reader
   + Image viewer
@@ -71,22 +83,32 @@ It's a *programmable*, *text-oriented* user-interface
 - Personal finance
 - Literate programming
 - Tiling window manager
+* Why Emacs?
+Customization
+* Getting Started
 
-* How do I get started?
-** First startup
-[[file:emacs.png]]
+1. Install emacs
+2. Configure your =init.el=
+
+#+REVEAL: split
+
+[[./emacs_resized.png]]
+
 ** Configuration Frameworks
 - Spacemacs
 - [[file:~/.config/doom/init.el][Doom emacs]]
 
-*** Starting Screen
-#+ATTR_ORG: :width 1200
-[[file:doom.png]]
+#+REVEAL: split
+
+[[./doom_resized.png]]
+
+*** Show Configs!
+
 ** Tips
 - It helps to already be familiar with *Vim*
-- Keep the manual page handy
+- Keep the manual handy
 
 * Conclusion
 - Emacs is not *just* a text editor
-- Emacs deserves more :heart:
+- Emacs deserves more love
 - I'm happy to help anyone get started
